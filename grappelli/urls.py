@@ -1,16 +1,10 @@
 # coding: utf-8
 
 # DJANGO IMPORTS
-import django
-from distutils.version import LooseVersion
 try:
-    # prevents deprecated warning in 1.5
-    if LooseVersion('1.4') < django.get_version():
-        from django.conf.urls import *
-    else:
-        from django.conf.urls.defaults import *
-except ImportError:
     from django.conf.urls import *
+except ImportError:
+    from django.conf.urls.defaults import *
 
 from django.views.generic.base import TemplateView
 from .views.related import RelatedLookup, M2MLookup, AutocompleteLookup
